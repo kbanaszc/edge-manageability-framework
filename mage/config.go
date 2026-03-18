@@ -36,8 +36,11 @@ var (
 		"enableMailpit":       false,
 		"dockerCache":         "",
 		"dockerCacheCert":     "",
-		"deployRepoURL":       "https://github.com/open-edge-platform/edge-manageability-framework",
-		"deployRepoRevision":  "main",
+
+
+		"deployRepoURL":       "https://github.com/kbanaszc/edge-manageability-framework",
+		"deployRepoRevision":  "my-dev-config",
+
 	}
 )
 
