@@ -23,6 +23,7 @@ root:
     - orch-configs/profiles/o11y-dev.yaml
     - orch-configs/profiles/alerting-emails-dev.yaml
     - orch-configs/profiles/resource-default.yaml
+    - orch-configs/profiles/enable-metrics.yaml
     - orch-configs/clusters/dev.yaml
 
 # Values applied to both root app and shared among all child apps
