@@ -1,84 +1,51 @@
-# SPDX-FileCopyrightText: 2025 Intel Corporation
-#
-# SPDX-License-Identifier: Apache-2.0
+# Go
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+vendor/
+bin/
 
-.logs
-.deploy
-.idea
-.env
-.gitea-proxy
-.mage-local.yaml
-assets/mage
-jwt.txt
-tools/router/traefik.yml
-tools/router/docker-compose.yml
-vault-keys.json
-mage_output_file.go
-fleet-secret
-*.tgz
-*.tar.gz
-vendor
-orch-utils
-COMMIT_ID
-.DS_Store
-.test
-_build/
-firewall-doc.md
-install-*.log
-uninstall-*.log
-cloud-orchestrator-installer/
-state/
-local-state/
-state-*/
-tmp/
-
-e2e-tests/installer/*.log
-e2e-tests/installer/poetry.lock
-.prettierrc
-*.crt
-*.key
-*.lock.hcl
-*.swp
-
-# IDE specific settings
-.vscode
-
-# configs ignore
-*.iml
-
-# pod-configs ignore
+# Terraform
 .terraform/
 .terraform.lock.hcl
-*.tmp
-statefiles/
-**/terraform.tfstate*
-terraform.tfstate*
-**/plan.out
-plan.out
-tls.crt
-tls.key
-**/certs/*
-**/aws_auth.yaml
-*.tar.gz
-package.zip
-SAVEME
-SAVEME.*
-sshuttle.pid
-
-# On-prem directories with build artifacts
-on-prem-installers/repo_archives
-on-prem-installers/installers
-on-prem-installers/dist
-on-prem-installers/assets/mage
-on-prem-installers/assets/tea
-
-# Terraform specific settings
-.terraform.tfstate.lock.info
-.terraform.lock.hcl
 *.tfstate
-*.tfstate.*
-**/.terraform/*
-**/files/
+*.tfstate.backup
+*.tfvars
+override.tf
+override.tf.json
 
-# Build artifacts
-edge-manageability-framework/
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Helm
+*.tgz
+charts/
+
+# Kubernetes / OEP
+kindAll.log
+clean-job.yaml
+infra-tls.key
+infra-tls.crt
+orch-ca.crt
+.deploy/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Env
+.env
+*.env.local
