@@ -103,30 +103,3 @@ opentelemetry-collector-daemonset:
                     port: 8888
                     without_type_suffix: true
                     without_units: true
-  ingester:
-    resources:
-      limits:
-        memory: 768Mi
-      requests:
-        memory: 512Mi
-  distributor:
-    resources:
-      limits:
-        memory: 384Mi
-      requests:
-        memory: 256Mi
-  querier:
-    resources:
-      limits:
-        memory: 384Mi
-      requests:
-        memory: 256Mi
-kube-prometheus-stack:
-  prometheus:
-    prometheusSpec:
-      retention: 6h
-      resources:
-        limits:
-          memory: 1Gi
-        requests:
-          memory: 512Mi
