@@ -103,3 +103,18 @@ opentelemetry-collector-daemonset:
                     port: 8888
                     without_type_suffix: true
                     without_units: true
+
+grafana:
+  datasources:
+    datasources.yaml:
+      apiVersion: 1
+      datasources:
+        - name: Orchestrator-Tempo
+          type: tempo
+          uid: orchestrator-tempo
+          url: http://orchestrator-observability-tempo:3200
+          access: proxy
+          jsonData:
+            httpHeaderName1: X-Scope-OrgID
+          secureJsonData:
+            httpHeaderValue1: orchestrator-system
