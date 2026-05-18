@@ -80,4 +80,4 @@ postCustomTemplateOverwrite:
   traefik:
     logs:
       general:
-        level: DEBUG
+        level: ERROR
