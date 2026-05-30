@@ -81,3 +81,15 @@ postCustomTemplateOverwrite:
     logs:
       general:
         level: ERROR
+    resources:
+      limits:
+        cpu: "2"
+        memory: "800Mi"
+      requests:
+        cpu: "1m"
+        memory: "100Mi"
+    env:
+      - name: GOMEMLIMIT
+        value: "760MiB"
+      - name: GOMAXPROCS
+        value: "2"
