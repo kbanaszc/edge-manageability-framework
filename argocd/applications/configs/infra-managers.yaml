@@ -25,7 +25,7 @@ host-manager:
     registry:
       name: docker.io/
     repository: kbanaszc/hostmgr
-    tag: 1.26.2-dev
+    tag: 1.26.3-dev-trace
   inventory:
     addr: inventory.orch-infra.svc.cluster.local
   multiTenancy:
