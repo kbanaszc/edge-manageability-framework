@@ -4,7 +4,7 @@ attestationstatus-manager:
     registry:
       name: docker.io/
     repository: kbanaszc/attestationstatusmgr
-    tag: 0.10.1-dev
+    tag: 0.10.2-dev-trace
   inventory:
     addr: inventory.orch-infra.svc.cluster.local
   multiTenancy:
@@ -47,7 +47,7 @@ maintenance-manager:
     registry:
       name: docker.io/
     repository: kbanaszc/maintmgr
-    tag: 1.26.1-dev
+    tag: 1.26.2-dev-trace
   inventory:
     addr: inventory.orch-infra.svc.cluster.local
   mimaintmgr:
@@ -72,7 +72,7 @@ networking-manager:
     registry:
       name: docker.io/
     repository: kbanaszc/netmgr
-    tag: 1.22.1-dev
+    tag: 1.22.2-dev-trace
   resources: null
   serviceArgs:
     inventoryAddress: inventory.orch-infra.svc.cluster.local:50051
@@ -85,7 +85,7 @@ os-resource-manager:
     registry:
       name: docker.io/
     repository: kbanaszc/osresourcemgr
-    tag: 0.22.1-dev
+    tag: 0.22.2-dev-trace
   managerArgs:
     inventoryAddress: inventory.orch-infra.svc.cluster.local:50051
     osProfileRevision: 0.10.7
@@ -105,7 +105,7 @@ telemetry-manager:
     registry:
       name: docker.io/
     repository: kbanaszc/telemetrymgr
-    tag: 1.26.1-dev
+    tag: 1.26.2-dev-trace
   multiTenancy:
     enforceMultiTenancy: 'true'
   oidc:
