@@ -39,6 +39,9 @@ templateController:
 credentialsM2M:
   enabled: true
 
+  istio:
+    enabled: false
+
   job:
     # job execution settings
     terminationGracePeriodSeconds: 90
@@ -69,3 +72,7 @@ credentialsM2M:
     adminSecretName: "platform-keycloak"
     adminSecretNamespace: "orch-platform"
     clientId: "co-manager-m2m-client"
+
+ingressRoute:
+  enabled: true
+  apiHostname: api.{{ .Values.argo.clusterDomain }}

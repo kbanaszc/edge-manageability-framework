@@ -1,5 +1,11 @@
 # Edge Manageability Framework
 
+
+> NOTE!
+> The Edge Manageability Framework has been deprecated and will no longer receive updates or active maintenance, including security fixes.  
+> Feature requests, bug reports, and pull requests will not be reviewed or responded to.  
+> Existing releases and documentation will remain available for reference only.
+
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 [![OpenSSF Scorecard](https://api.scorecard.dev/projects/github.com/open-edge-platform/edge-manageability-framework/badge)](https://scorecard.dev/viewer/?uri=github.com/open-edge-platform/edge-manageability-framework)
 
@@ -27,7 +33,91 @@ dashboards for quick views of status & issue identification, and management of
 all software deployments & infrastructure components including edge nodes (i.e.
 hosts) and clusters.
 
-![Edge Manageability Framework High Level Component Diagram](docs/Edge_Manageability_Framework_Readme_Image.png)
+```mermaid
+flowchart TD
+
+    %% LEFT: Cloud
+    subgraph Cloud[" "]
+    direction LR
+    APPS@{ shape: cloud, label: "Apps"  } ~~~
+    Infra@{ shape: cloud, label: "Infra"  }
+    end
+
+    %% EDGE SITES
+    SF["Edge Nodes at Customer Site<br>(San Francisco)"]
+    ATL["Edge Nodes at Customer Site<br>(Atlanta)"]
+    NYC["Edge Nodes at Customer Site<br>(New York City)"]
+
+    Cloud -.-> SF
+    Cloud -.-> ATL
+    Cloud -.-> NYC
+
+    %% RIGHT SIDE
+    subgraph EO["Edge Orchestrator"]
+        direction TB
+        subgraph Orch[" "]
+        direction TB
+        WebUI[Web-UI]
+
+        subgraph OrchestrationLayer[" "]
+            direction LR
+            AppOrch["Application<br>Orchestration"] ~~~
+            ClusterOrch["Multi Edge Cluster<br>Orchestration"] ~~~
+            InfraMgmt["Edge Infrastructure<br>Management"] 
+        end
+
+        Platform["Foundational Platform Services<br/>(Identity and Access Mgmt, Secrets Mgmt,<br/>API Gateway, Observability, etc.)"]
+
+        INFRA[On-Prem Datacenter]
+end
+        %% EDGE NODE
+
+        subgraph EdgeNode["Edge Node"]
+            direction TB
+            subgraph AppsRow[" "]
+                direction LR
+                CA1[Customer Apps] ~~~
+                CA2[Customer Apps] ~~~
+                CA3[Customer Apps]
+            end
+
+            K8s[Kubernetes* Cluster]
+            OS[Edge Node OS, Packages, Agents]
+            HW["Edge Node Hardware<br/>(Intel® Xeon® processor, Intel® Core™ processor)"]
+
+            %% Invisible ordering inside Edge Node
+            AppsRow ~~~ K8s
+            K8s ~~~ OS
+            OS ~~~ HW
+        end
+        %% Invisible ordering inside EO
+        WebUI ~~~ Orch
+        Orch ~~~ Platform
+        Platform ~~~ INFRA
+        INFRA ~~~ EdgeNode
+    end
+
+
+    Cloud -.-> |"Cloud-based<br>Orchestration"|EO
+
+
+    %% Styling
+    classDef grey fill:#eeeeee,stroke:#666,stroke-width:1.5px
+    classDef blue fill:#1f4fbf,color:#fff,stroke:#1f4fbf;
+    classDef lightblue fill:#1fb6d9,color:#000,stroke:#1fb6d9;
+    classDef transparent fill:#00000000,stroke-width:0px;
+
+    class EO,EdgeNode,AppsRow,Orch,OrchestrationLayer, grey;
+    class WebUI,AppOrch,ClusterOrch,InfraMgmt,Platform,INFRA blue;
+    class CA1,CA2,CA3,K8s,OS,HW lightblue;
+    class Cloud transparent;
+
+    %% Define the style for big nodes
+    classDef bigNode font-size:30px,stroke-width:2px,padding:10px;
+    
+    %% Apply the style
+    class APPS,Infra bigNode;
+```
 
 ### Key Components
 
